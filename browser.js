@@ -1,18 +1,10 @@
-//window.onresize = updateSize;
-function updateSize() {
-  var webview = document.querySelector('webview');
-  var Width = document.documentElement.clientWidth;
-  var Height = document.documentElement.clientHeight;
-  var controls = document.querySelector('#controls');
-  var controlsHeight = controls.offsetHeight;
-  Height = Height - controlsHeight;
-  webview.style.width = Width + 'px';
-  webview.style.height = Height + 'px';
-}
+window.onresize = updateSize;
+
 
 window.onload = function () {
 
   var webview = document.querySelector('#frame');
+  updateSize();
   document.querySelector('#GO').onclick = function() {
     goTo(document.querySelector('#bar').value);
   };
@@ -28,5 +20,18 @@ window.onload = function () {
   function goTo(URL) {
     webview.src = URL;
   }
-  setInterval(updateSize(), 1000)
+};
+
+function updateSize() {
+  var webview = document.querySelector('webview');
+  var Width = document.documentElement.clientWidth;
+  var Height = document.documentElement.clientHeight;
+  var controls = document.querySelector('#controls');
+  var controlsHeight = controls.offsetHeight;
+  var controlsWidth = controls.offsetWidth;
+
+  Width = Width;
+  Height = Height - controlsHeight;
+  webview.style.width = Width +  'px';
+  webview.style.height = Height  +'px';
 }
