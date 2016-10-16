@@ -35,6 +35,10 @@ window.onload = function () {
     var newPage = document.createElement('button');
     newPage.innerHTML = title;
     newPage.value = webview.getURL();
+    newPage.class = 'pure-button';
+    newPage.onclick = function () {
+      webview.src = newPage.value;
+    };
     document.getElementById('pages').appendChild(newPage);
   }
   webview.addEventListener('did-stop-loading', loadstop);
