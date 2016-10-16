@@ -18,6 +18,19 @@ window.onload = function () {
   };
 
   function goTo(URL) {
+    if (!URL.includes('http://')) {
+      if (!URL.includes('www.')) {
+        //UUUU du vil gerne søge va?
+        var searchQ = URL.replace(' ', '+');
+        //TODO make it so u can change your search engine
+        URL = 'https://duckduckgo.com/?q='+searchQ;
+        console.log(searchQ);
+      }else{
+        console.log('u forgot http://...  idiot');
+        URL = 'http://' + URL;
+      }
+
+    }
     webview.src = URL;
   }
 };
